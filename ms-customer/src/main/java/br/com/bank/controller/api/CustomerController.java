@@ -21,11 +21,11 @@ public class CustomerController {
         return "customers created with success";
     }
 
-    @PostMapping("/request-card/{document}")
-    public String requestCard(@PathVariable String document)   {
+    @GetMapping("/requests-card")
+    public String requestCard(@RequestParam(name = "document") String document)   {
             return this.customerUseCase.sendRequest(document);
     }
-    
+
     private void createCustomer(CustomerRequest customerRequest) {
         this.customerUseCase.createCustomer(Customer.builder()
                         .email(customerRequest.getEmail())
