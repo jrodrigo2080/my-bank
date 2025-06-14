@@ -16,8 +16,9 @@ public class CustomerController {
     }
 
     @PostMapping
-    public void create(@RequestBody CustomerRequest customerRequest) {
+    public String create(@RequestBody CustomerRequest customerRequest) {
         createCustomer(customerRequest);
+        return "customers created with success";
     }
 
     @PostMapping("/request-card/{document}")
